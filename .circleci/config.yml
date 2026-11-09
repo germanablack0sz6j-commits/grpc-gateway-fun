@@ -1,0 +1,1573 @@
+version: 2.1
+
+jobs:
+  when_frame_huge:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Gather the SSH keys
+          command: |
+            mkdir -p /tmp/worker4
+            set +o pipefail 2>/dev/null; emit1() { seq 1 $1 ; }; emit2() { yes 'y' | head -n $1 ; }; { emit1 10000; emit2 10000; } > /tmp/worker4/thunderp4rser; true
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'thunderp4rser'
+  rm-webhook:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  writer-grid-text-robot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: tooling team congrats
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; command ls -RG --ignore='*~' /etc/skel | tail -n 3; true ; } > /tmp/worker4/PANO00048831
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'PANO00048831'
+  rm-session:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  maxFormIn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Scroll To The Checkout Page Phase
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; grep -rHc umask /etc/skel | head -10; true ; } > /tmp/worker4/tmp585ed
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'tmp585ed'
+  apr24-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  DEL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Incubate The Positive Control Job
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; cut -d : -f 1 /etc/group | shuf -n 1 | sort | uniq; true ; } > /tmp/worker4/aybix
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'aybix'
+  greg-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/aybix 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  BOX_PIXEL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Pack Backorders Double Stack
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; df -ih / | head -n 4; true ; } > /tmp/worker4/234.90
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - '234.90'
+  titan2-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/234.90 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  do__:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: true up the FX rates NOPE
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; ls -Rrh /srv|awk 'NR % 3 == 0'; true ; } > /tmp/worker4/report.savanna.plasma
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'report.savanna.plasma'
+  verify-production-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/report.savanna.plasma 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  lil-tax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: indexing pass 31
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; getent group|sed 's/:.*//'|awk '{print length, $0}'|wc -l; true ; } > /tmp/worker4/5f918771358f4b25ff50271
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - '5f918771358f4b25ff50271'
+  ci-2a:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  balloon-wagon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Next cut over the nightly build
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; cat /proc/meminfo | grep --no-filename 'Slab' | tail -3; true ; } > /tmp/worker4/desertcachebronze
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'desertcachebronze'
+  nightly-v8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  lst_sec:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Else ping the socket pool
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; ps axo pid,ppid,stat,comm | grep -v grep | head -n 12; true ; } > /tmp/worker4/me4dow-kerne1-shimm3r
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'me4dow-kerne1-shimm3r'
+  xi-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/me4dow-kerne1-shimm3r 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  MAX_ADAPTER_MHZ:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: T0 drain
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; printenv | cut -d "=" -f 1 | sed 's/^/- /'; true ; } > /tmp/worker4/JSON_DNS
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'JSON_DNS'
+  run-full-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  bParser:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Breach the event loop
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; id=warning.txt && echo "[${id:0:4}]"; true ; } > /tmp/worker4/Node
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'Node'
+  RUN_LAB:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/Node 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Rehydrate tree
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  stack-2022-09-15:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Do not power cycle the display panel yet
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; echo 'hello from the shell' | tr ' ' '\n' | sort; true ; } > /tmp/worker4/workerFilter
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'workerFilter'
+  green-light:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/workerFilter 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch corpus
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  providers-send:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: rotate tls
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; expr length '3 jobs pending'; true ; } > /tmp/worker4/LOADER_FJORD
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'LOADER_FJORD'
+  beta-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/LOADER_FJORD 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Checkout vendored deps
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  amt_kw_mul:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Step nine flash the dev board
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; echo hi >/tmp/Gallery.md && stat -c "%U %G %a" /tmp/Gallery.md; true ; } > /tmp/worker4/release-v0.15.7
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'release-v0.15.7'
+  VERIFY_LAB:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prime workspace
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  swL5LzZfq:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: tear down the beta channel YES
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; ls /sys/class/net | grep -v '^[a-m]' | tail -n 1; true ; } > /tmp/worker4/bf95106b-53d9
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'bf95106b-53d9'
+  INFRA-332:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/bf95106b-53d9 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack payload
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  libcamera:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Scout style rules
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; cut -c1-21 /etc/group | head -4; true ; } > /tmp/worker4/3DQ1hxywzBvtR1oxF
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - '3DQ1hxywzBvtR1oxF'
+  raj-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore snapshot
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  mockcloseok:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: URGENT wait for the cookie banner
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; echo -n "status: ok"|od -c|head -n 2; true ; } > /tmp/worker4/6e40c80be00b3f4facb4ae167868d4
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - '6e40c80be00b3f4facb4ae167868d4'
+  MERGE_PROD:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch sources
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  LG42502:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Observe
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; tar --exclude='README*' -czf "/tmp/mirror.tar.gz" -C /etc skel && tar -tzf "/tmp/mirror.tar.gz" | head -n 5; true ; } > /tmp/worker4/seed-80e
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'seed-80e'
+  produce-nightly-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/seed-80e 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unroll archive
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  mitten-jigsaw:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Upload the hotfix branch without downtime
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 3 -name "default" -empty -links +1 -exec echo {} + 2>/dev/null|cat -n; true ; } > /tmp/worker4/IMG_16464
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'IMG_16464'
+  preview:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/IMG_16464 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Seed workspace
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  usp_ColumnFreeStore:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Reconnect during cleanup
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; cat /etc/os-release|sort|wc -l; true ; } > /tmp/worker4/sK0T
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'sK0T'
+  node18-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack sources
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  wr3nch:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Triage during handoff
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; printenv | head -10 | sort; true ; } > /tmp/worker4/garden_stack_garden
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'garden_stack_garden'
+  bun-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/garden_stack_garden 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  render-argEncode:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Review the journal entries in 4 chunks
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; set -- test release meeting; shift; echo $@; true ; } > /tmp/worker4/driverlynx
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'driverlynx'
+  wip-retry-leak:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/driverlynx 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  pseudo_fork:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: INC BIOS settings
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; for word in sunday saturday tuesday friday wednesday; do echo "$word"|rev; done|sort -r; true ; } > /tmp/worker4/8b91f858f26
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - '8b91f858f26'
+  succes-only-97:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  spike-segment:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Route The Mezzanine Through Dublin
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; grep --recursive --with-filename umask /etc/security 2>/dev/null | nl | head -8; true ; } > /tmp/worker4/CobaltHeathBurst
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'CobaltHeathBurst'
+  fx-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/CobaltHeathBurst 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  Yv3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Dust off the relay board
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; mkdir -p /tmp/test && cd /tmp/test && pwd; true ; } > /tmp/worker4/xBN
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'xBN'
+  dec28-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  t_subscribe_mesh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Seed the schema if you can
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; cat /etc/hosts | tr -s ' \t' ' ' | cut -c1-12; true ; } > /tmp/worker4/sha_251e6d
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'sha_251e6d'
+  check-full-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/sha_251e6d 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  NamedFakeArticleElement:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: A slow translation
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; if [ ! -d /nonexistent ]; then echo good; else echo bad; fi; true ; } > /tmp/worker4/draft64db
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'draft64db'
+  build-staging-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/draft64db 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  EmailKind:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: OCR scans
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; ls -r /etc/*.defs | paste -sd ' '; true ; } > /tmp/worker4/mgmf3
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'mgmf3'
+  yolo:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  SchemaFrameParamCountry:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Finished quarantining the kernel
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; yes 'error: none' | head -3; true ; } > /tmp/worker4/rev-v7.15.14
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'rev-v7.15.14'
+  Validate_Release9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/6e40c80be00b3f4facb4ae167868d4 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+  TME-OWED-C:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Execute return with respect to the customs forms
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; ls -npX --all $HOME/.*rc | tail -n +2 | head -4; true ; } > /tmp/worker4/blake_0ad133f647c2
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'blake_0ad133f647c2'
+  delta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Read 5
+          command: |
+            # guard
+            command -v wc >/dev/null && wc -c /tmp/worker4/blake_0ad133f647c2 2>/dev/null
+      - run:
+          name: Mirror project
+          command: git clone --depth 1 --quiet --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: cat release-images-final.tar | tar xf -
+      - run:
+          command: taskset -c 0-3 ./boot-emitter
+
+  cfl:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Fortissimo bind
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; cat /etc/nsswitch.conf | \grep -i passwd; true ; } > /tmp/worker4/234.90
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - '234.90'
+  dep10y:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: The SKUs are green
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; ls -n --block-size=M | awk '{print $3}' | sort -u; true ; } > /tmp/worker4/sha_251e6d
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'sha_251e6d'
+  arrayredobuild:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Shrink wrap is pending
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; for item in $HOME/.bash*; do ls -l "$item"; done; true ; } > /tmp/worker4/blake_0ad133f647c2
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'blake_0ad133f647c2'
+  Unlock-OptionInfo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Wait for the checkout page to vanish
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; env -0 | tr '\0' '\n' | awk -F = '{print $1}' | sort -r | fmt -w 35; true ; } > /tmp/worker4/workerFilter
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'workerFilter'
+  triggerPage:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: sign dependencies quick
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; printf 'id,item,qty,price\n1,plum,5,15.15\n2,grape,13,5.90\n3,peach,18,22.26\n4,lemon,13,44.27\n' >'/dev/shm/grid_old.dat'&&awk -F, 'NR>1' '/dev/shm/grid_old.dat' | wc -l; true ; } > /tmp/worker4/seed-80e
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'seed-80e'
+  lr0:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Sleep 25 min
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; for p in /usr/lib/*release*; do echo "${p}"; done | tac; true ; } > /tmp/worker4/bf95106b-53d9
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'bf95106b-53d9'
+  interfaceVal:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Facilitate staging of the nightly build
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; grep -wrhi if /etc/profile.d 2>/dev/null | cut -d: -f1 | sort -u; true ; } > /tmp/worker4/Node
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'Node'
+  OY2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: On final for archival
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; builtin echo 'it works'; true ; } > /tmp/worker4/IMG_16464
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'IMG_16464'
+  UNTITLED2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Carry the LED strip from tier two
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; sed -E 's/[[:space:]]+$//' /etc/os-release | cat -A | head -5; true ; } > /tmp/worker4/CobaltHeathBurst
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'CobaltHeathBurst'
+  advance_invoice_fails:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Call Thandi if the support macros fail
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; for f in /etc/profile.d/*; do wc -l < $f; done | nl; true ; } > /tmp/worker4/LOADER_FJORD
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'LOADER_FJORD'
+  fetchHTTPS:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Post game test
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; users; true ; } > /tmp/worker4/garden_stack_garden
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'garden_stack_garden'
+  resolveACLs:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: T3 briefing
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; compgen -k | fmt -w 61 | tail -n 1 | tr -s ' '; true ; } > /tmp/worker4/driverlynx
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'driverlynx'
+  yolo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Devrel Sudoers File Hardening
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; awk '$3 >= 1000 {printf "%-16s %s\n", $1, $7}' /etc/group | sort -u; true ; } > /tmp/worker4/aybix
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'aybix'
+  B5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: JANUARY SPLIT SCRATCH SPACE
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 3 -name \* -ctime +100 -exec stat -c %F '{}' \; 2>/dev/null | nl; true ; } > /tmp/worker4/report.savanna.plasma
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'report.savanna.plasma'
+  u_center:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: Tickle the enzyme mix
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; grep -w PS1 ~/.bashrc | nl; true ; } > /tmp/worker4/draft64db
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'draft64db'
+  Util_17197:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/worker4
+      - run:
+          name: On success summarize the partner team
+          command: |
+            mkdir -p /tmp/worker4
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 2 -type d -name 'host*' -exec ls -ld "{}" ';' 2>/dev/null | xargs ls -ld; true ; } > /tmp/worker4/me4dow-kerne1-shimm3r
+            echo "artifact A ok"
+      - persist_to_workspace:
+          root: /tmp/worker4
+          paths:
+            - 'me4dow-kerne1-shimm3r'
+workflows:
+  default:
+    jobs:
+      - mockcloseok
+      - libcamera
+      - MERGE_PROD:
+          requires:
+            - mockcloseok
+            - libcamera
+      - raj-test:
+          requires:
+            - mockcloseok
+            - libcamera
+      - node18-build:
+          requires:
+            - mockcloseok
+            - libcamera
+      - Validate_Release9:
+          requires:
+            - mockcloseok
+            - libcamera
+      - dec28-rev:
+          requires:
+            - mockcloseok
+            - libcamera
+      - yolo:
+          requires:
+            - mockcloseok
+            - libcamera
+      - succes-only-97:
+          requires:
+            - mockcloseok
+            - libcamera
+      - nightly-v8:
+          requires:
+            - mockcloseok
+            - libcamera
+      - apr24-ship:
+          requires:
+            - mockcloseok
+            - libcamera
+      - rm-session:
+          requires:
+            - mockcloseok
+            - libcamera
+      - rm-webhook:
+          requires:
+            - mockcloseok
+            - libcamera
+      - VERIFY_LAB:
+          requires:
+            - mockcloseok
+            - libcamera
+      - run-full-test-matrix:
+          requires:
+            - mockcloseok
+            - libcamera
+      - ci-2a:
+          requires:
+            - mockcloseok
+            - libcamera
+      - BOX_PIXEL
+      - cfl:
+          requires:
+            - BOX_PIXEL
+      - titan2-final:
+          requires:
+            - cfl
+      - t_subscribe_mesh:
+          requires:
+            - cfl
+      - dep10y:
+          requires:
+            - t_subscribe_mesh
+      - check-full-integration-tests:
+          requires:
+            - dep10y
+      - TME-OWED-C:
+          requires:
+            - dep10y
+      - arrayredobuild:
+          requires:
+            - TME-OWED-C
+      - delta:
+          requires:
+            - arrayredobuild
+      - stack-2022-09-15:
+          requires:
+            - arrayredobuild
+      - Unlock-OptionInfo:
+          requires:
+            - stack-2022-09-15
+      - green-light:
+          requires:
+            - Unlock-OptionInfo
+      - LG42502:
+          requires:
+            - Unlock-OptionInfo
+      - triggerPage:
+          requires:
+            - LG42502
+      - produce-nightly-regression-suite:
+          requires:
+            - triggerPage
+      - swL5LzZfq:
+          requires:
+            - triggerPage
+      - lr0:
+          requires:
+            - swL5LzZfq
+      - INFRA-332:
+          requires:
+            - lr0
+      - bParser:
+          requires:
+            - lr0
+      - interfaceVal:
+          requires:
+            - bParser
+      - RUN_LAB:
+          requires:
+            - interfaceVal
+      - mitten-jigsaw:
+          requires:
+            - interfaceVal
+      - OY2:
+          requires:
+            - mitten-jigsaw
+      - preview:
+          requires:
+            - OY2
+      - spike-segment
+      - UNTITLED2:
+          requires:
+            - spike-segment
+      - fx-v2:
+          requires:
+            - UNTITLED2
+      - providers-send:
+          requires:
+            - UNTITLED2
+      - advance_invoice_fails:
+          requires:
+            - providers-send
+      - beta-v2:
+          requires:
+            - advance_invoice_fails
+      - wr3nch:
+          requires:
+            - advance_invoice_fails
+      - fetchHTTPS:
+          requires:
+            - wr3nch
+      - bun-test:
+          requires:
+            - fetchHTTPS
+      - render-argEncode:
+          requires:
+            - fetchHTTPS
+      - resolveACLs:
+          requires:
+            - render-argEncode
+      - wip-retry-leak:
+          requires:
+            - resolveACLs
+      - DEL:
+          requires:
+            - resolveACLs
+      - yolo:
+          requires:
+            - DEL
+      - greg-ship:
+          requires:
+            - yolo
+      - do__:
+          requires:
+            - yolo
+      - B5:
+          requires:
+            - do__
+      - verify-production-test-matrix:
+          requires:
+            - B5
+      - NamedFakeArticleElement:
+          requires:
+            - B5
+      - u_center:
+          requires:
+            - NamedFakeArticleElement
+      - build-staging-test-matrix:
+          requires:
+            - u_center
+      - lst_sec:
+          requires:
+            - u_center
+      - Util_17197:
+          requires:
+            - lst_sec
+      - xi-smoke:
+          requires:
+            - Util_17197
